@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.studentapp.R;
 import com.example.studentapp.api.RetrofitClient;
 import com.example.studentapp.models.LoginResponse;
+import com.example.studentapp.storage.SharedPrefManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import retrofit2.Call;
@@ -23,6 +24,16 @@ public class MainActivity extends AppCompatActivity {
     MaterialEditText edtEmail,edtPassword;
     TextView register;
     Button login;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (SharedPrefManager.getInstance(this).isLoggedIn()){
+            Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +94,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse=response.body();
                 if (!loginResponse.isError()){
-                    Toast.makeText(MainActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(MainActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    SharedPrefManager.getInstance(MainActivity.this)
+                            .saveUser(loginResponse.getUser());
+                    Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 }
                 else
                 {

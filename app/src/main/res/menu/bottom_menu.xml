@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Units"
+        android:id="@+id/units"
+        android:background="@drawable/rounded"
+        android:icon="@drawable/ic_school"/>
+
+    <item
+        android:title="Results"
+        android:background="@drawable/rounded"
+        android:id="@+id/results"
+        android:icon="@drawable/ic_school"/>
+
+    <item
+        android:title="Exam Card"
+        android:background="@drawable/rounded"
+        android:id="@+id/exam_card"
+        android:icon="@drawable/ic_school"/>
+
+</menu>

@@ -25,6 +25,9 @@
     <color name="background">#4f0e0d0e</color>
     <color name="white">#FFFFFF</color>
     <color name="transparent">#ffffff00</color>
+    <color name="textcolor">#ffffff</color>
+    <color name="paragraph">#343d41</color>
+    <color name="subtext">#797979</color>
     <!-- Screens background color-->
     <color name="bg_slider_screen1">#f4b241</color>
     <color name="bg_slider_screen2">#16bc7d</color>

@@ -3,15 +3,15 @@ package com.example.studentapp.models;
 public class User {
 
     private int id;
-    private String name,email,phone,admissionNumber,gender,campus,faculty;
+    private String name,email,gender,admissionNumber,phone,campus,faculty;
 
-    public User(int id, String name, String email, String phone, String admissionNumber, String gender, String campus, String faculty) {
+    public User(int id, String name, String email, String gender, String admissionNumber, String phone, String campus, String faculty) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phone = phone;
-        this.admissionNumber = admissionNumber;
         this.gender = gender;
+        this.admissionNumber = admissionNumber;
+        this.phone = phone;
         this.campus = campus;
         this.faculty = faculty;
     }

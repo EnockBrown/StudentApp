@@ -1,16 +1,516 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#212429"
+    android:orientation="vertical"
     tools:context=".Activities.HomeActivity">
 
-    <TextView
-        android:layout_centerInParent="true"
-        android:text="Welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_margin="20dp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FF000000"/>
+
+                <TextView
+                    android:id="@+id/admissionNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="29dp"
+                    android:text="Registration Number"
+                    android:textColor="@color/textcolor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="18dp"
+                    android:text="Student Name"
+                    android:textColor="@color/textcolor"
+                    android:textSize="22.6dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="Programme"
+                    android:textColor="#d2d3d4"
+                    android:textSize="11.5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="25dp"
+                    android:text="previous change"
+                    android:textColor="#d2d3d4"
+                    android:textSize="11.5dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="18dp">
+
+                    <TextView
+                        android:id="@+id/App"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="More Actions"
+                        android:textColor="#2f0305"
+                        android:textSize="14dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/rectangle"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitStart"
+                            android:src="@drawable/logout" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleType="fitStart"
+                            android:src="@drawable/logout" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleType="fitStart"
+                            android:src="@drawable/logout" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleType="fitStart"
+                            android:src="@drawable/logout" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleType="fitStart"
+                            android:src="@drawable/logout" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="25dp">
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fees Payment"
+                        android:theme="@style/Rupees" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Total Billed"
+                            android:theme="@style/Paragraph" />
+                        <TextView
+                            android:id="@+id/totalBilled"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/green"
+                            android:layout_marginLeft="10dp"
+                            android:text="$4000"
+                            android:theme="@style/Paragraph" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Total paid"
+                            android:theme="@style/Paragraph" />
+                        <TextView
+                            android:id="@+id/totalPaid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/green"
+                            android:layout_marginLeft="10dp"
+                            android:text="$4000"
+                            android:theme="@style/Paragraph" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Fees Balance"
+                            android:theme="@style/Paragraph" />
+                        <TextView
+                            android:id="@+id/feeBalance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/green"
+                            android:layout_marginLeft="10dp"
+                            android:text="$4000"
+                            android:theme="@style/Paragraph" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingBottom="25dp"
+                        android:text="3 days ago"
+                        android:theme="@style/Sub_Text" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="25dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Accomodation"
+                        android:textAlignment="center"
+                        android:theme="@style/Rupees" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Book Room "
+                        android:textColor="@color/paragraph"
+                        android:theme="@style/Paragraph" />
+
+                    <TextView
+                        android:id="@+id/book_hostel"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="center"
+                        android:text="Book Hostel?"
+                        android:textColor="@color/edit_profile"
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded"
+                        android:padding="10dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle3"
+                        android:orientation="vertical"
+                        android:paddingLeft="18dp"
+                        android:paddingRight="18dp"
+                        android:paddingTop="25dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Accademics"
+                            android:textAlignment="center"
+                            android:theme="@style/Rupees" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Units Registration and Results"
+                            android:theme="@style/Paragraph" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View units and register your units to sit for exams!"
+                                android:textSize="11.5dp" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="right"
+                            android:layout_marginBottom="4dp"
+                            android:text="1-Sep-2019"
+                            android:theme="@style/Sub_Text" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#c8cbcc"
+                        android:paddingTop="2dp" />
+
+                    <TextView
+                        android:id="@+id/view_units_results"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle2"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="18dp"
+                        android:paddingTop="10dp"
+                        android:text="View Full Detailed here"
+                        android:textSize="11.5dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="25dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$1422.90"
+                        android:theme="@style/Rupees" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Saved on your Car Insurance Policy. Your Installment
+towards car policy is $1499"
+                        android:theme="@style/Paragraph" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="right"
+                        android:paddingBottom="25dp"
+                        android:text="3 days ago"
+                        android:theme="@style/Sub_Text" />
+
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle3"
+                            android:orientation="vertical"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="25dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="$1422.90"
+                                android:theme="@style/Rupees" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Download this app and get $500 Cash in
+your wallet."
+                                android:theme="@style/Paragraph" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="App Name:"
+                                    android:textColor="#000"
+                                    android:textSize="11.5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Student App"
+                                    android:textColor="#1cb1ba"
+                                    android:textSize="11.5dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginTop="4dp"
+                                android:gravity="right"
+                                android:paddingRight="20dp"
+                                android:text="SPONSORED"
+                                android:theme="@style/Sub_Text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#c8cbcc"
+                            android:paddingTop="2dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle4"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:text="View Full Detailed Card"
+                            android:textColor="#fff"
+                            android:textSize="11.5dp" />
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+
+                        android:src="@drawable/tran" />
+
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:text="No more activities"
+                        android:textColor="#838587"
+                        android:textSize="10.5dp" />
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

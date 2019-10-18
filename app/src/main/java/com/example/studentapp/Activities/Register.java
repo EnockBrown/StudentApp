@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.studentapp.R;
 import com.example.studentapp.api.RetrofitClient;
+import com.example.studentapp.storage.SharedPrefManager;
 
 import java.io.IOException;
 
@@ -25,6 +26,17 @@ public class Register extends AppCompatActivity {
     EditText name,email,password,phone,admissionNumber,campus,faculty,gender;
     Button btnSignUp;
     TextView login;
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (SharedPrefManager.getInstance(this).isLoggedIn()){
+            Intent intent = new Intent(Register.this,HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,4 +10,7 @@
     <string name="slide_3_title">Diet Chart</string>
     <string name="slide_3_desc">Make your diet chart by the help of health experts</string>
     <string name="registration_form">Registration Form</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
