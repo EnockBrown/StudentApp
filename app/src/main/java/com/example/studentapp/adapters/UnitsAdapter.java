@@ -53,7 +53,6 @@ public class UnitsAdapter extends RecyclerView.Adapter<UnitsAdapter.UnitsViewHol
     }
 
     class UnitsViewHolder extends RecyclerView.ViewHolder{
-
         TextView code,name;
         ImageView add;
         public UnitsViewHolder(@NonNull View itemView) {

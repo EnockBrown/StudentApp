@@ -3,8 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".fragments.UnitsFragment">
+
+    <TextView
+        android:id="@+id/view_your_registered_units"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="View Your Units"
+        android:layout_gravity="right"
+        android:textColor="@color/edit_profile"
+        android:textAlignment="center"
+        android:background="@drawable/rounded"
+        android:padding="10dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="8dp"

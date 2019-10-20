@@ -7,7 +7,6 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -27,12 +26,12 @@
                 <TextView
                     android:id="@+id/code"
                     android:text="CCS2121"
-                    android:textSize="16sp"
+                    android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/name"
-                    android:textSize="16sp"
+                    android:textSize="18dp"
                     android:layout_marginLeft="10dp"
                     android:text="software engineering"
                     android:layout_width="wrap_content"
