@@ -43,8 +43,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingTop="29dp"
+                    android:textAllCaps="true"
                     android:text="Registration Number"
-                    android:textColor="@color/textcolor"
+                    android:textColor="@color/green"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -54,18 +55,21 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingTop="18dp"
+                    android:textAllCaps="true"
                     android:text="Student Name"
-                    android:textColor="@color/textcolor"
+                    android:textColor="@color/green"
                     android:textSize="22.6dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/programe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingTop="5dp"
                     android:text="Programme"
-                    android:textColor="#d2d3d4"
+                    android:textAllCaps="true"
+                    android:textColor="@color/green"
                     android:textSize="11.5dp" />
 
                 <TextView
@@ -73,7 +77,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="25dp"
-                    android:text="previous change"
+                    android:text="Y4S4"
+                    android:textAllCaps="true"
                     android:textColor="#d2d3d4"
                     android:textSize="11.5dp" />
             </LinearLayout>
@@ -109,6 +114,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:layout_marginTop="12dp"
                         android:background="@drawable/rectangle"
                         android:orientation="horizontal">
@@ -118,30 +126,17 @@
                             android:layout_height="35dp"
                             android:layout_weight="1"
                             android:scaleType="fitStart"
-                            android:src="@drawable/logout" />
+                            android:src="@drawable/graduate" />
 
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:scaleType="fitStart"
-                            android:src="@drawable/logout" />
+                            android:src="@drawable/homework" />
 
                         <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:scaleType="fitStart"
-                            android:src="@drawable/logout" />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:scaleType="fitStart"
-                            android:src="@drawable/logout" />
-
-                        <ImageView
+                            android:id="@+id/logout"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -367,25 +362,28 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="$1422.90"
+                        android:text="Registered Units"
                         android:theme="@style/Rupees" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Saved on your Car Insurance Policy. Your Installment
-towards car policy is $1499"
+                        android:text="View Registred Units here"
                         android:theme="@style/Paragraph" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/viewRegisterdUnits"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:gravity="right"
-                        android:paddingBottom="25dp"
-                        android:text="3 days ago"
-                        android:theme="@style/Sub_Text" />
+                        android:layout_gravity="right"
+                        android:gravity="center"
+                        android:text="View Units?"
+                        android:textColor="@color/edit_profile"
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded"
+                        android:padding="10dp" />
+
 
                 </LinearLayout>
 
