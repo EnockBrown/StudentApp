@@ -14,7 +14,7 @@ import com.example.studentapp.storage.SharedPrefManager;
 
 public class HomeActivity extends AppCompatActivity {
     TextView name,admissionNumber,book_hostel,units,view_Units,programe;
-    ImageView logout;
+    ImageView logout,settings;
 
     @Override
     protected void onStart() {
@@ -37,6 +37,14 @@ public class HomeActivity extends AppCompatActivity {
         admissionNumber.setText(SharedPrefManager.getInstance(this).getUser().getAdmissionNumber());
         programe=findViewById(R.id.programe);
         programe.setText(SharedPrefManager.getInstance(this).getUser().getPrograme());
+        settings=findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,Settings.class);
+                startActivity(intent);
+            }
+        });
         logout=findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
