@@ -65,13 +65,5 @@ public class UnitsFragment extends Fragment {
             }
         });
 
-        txt=view.findViewById(R.id.view_your_registered_units);
-        txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i =new Intent(getActivity(), UnitsActivity.class);
-                startActivity(i);
-            }
-        });
     }
 }

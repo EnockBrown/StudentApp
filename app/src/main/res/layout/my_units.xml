@@ -14,11 +14,10 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_weight="9"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
-
             <TextView
                 android:id="@+id/code"
                 android:layout_marginLeft="10dp"
@@ -27,7 +26,6 @@
                 android:text="#111111"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <TextView
                 android:id="@+id/name"
                 android:layout_marginLeft="10dp"
@@ -36,20 +34,24 @@
                 android:text="123456789"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/add_unit"
-                android:text="Enroll"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:textColor="@color/black"
+            <TextView
+                android:id="@+id/id"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+                android:textStyle="italic"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="right"
-                android:background="@drawable/btn_follow_style"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/drop_unit"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="DROP?"
+            android:textColor="@color/reddark"
+            android:textAlignment="center"
+            android:background="@drawable/red" />
 
 
 

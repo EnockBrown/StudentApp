@@ -6,16 +6,15 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.studentapp.R;
 import com.example.studentapp.api.RetrofitClient;
 import com.example.studentapp.models.Units;
-import com.example.studentapp.storage.SharedPrefManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,57 +24,51 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class UnitsAdapter extends RecyclerView.Adapter<UnitsAdapter.UnitsViewHolder> {
+public class MyUnitsAdapter extends RecyclerView.Adapter<MyUnitsAdapter.MyUnitsViewHolder> {
 
     private Context context;
     private List<Units> unitsList;
 
-    public UnitsAdapter(Context context, List<Units> unitsList) {
+    public MyUnitsAdapter(Context context, List<Units> unitsList) {
         this.context = context;
         this.unitsList = unitsList;
     }
 
     @NonNull
     @Override
-    public UnitsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view= LayoutInflater.from(context).inflate(R.layout.recyclerview_units,parent,false);
-       return new UnitsViewHolder(view);
+    public MyUnitsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v=LayoutInflater.from(context).inflate(R.layout.my_units, parent,false);
+        return  new MyUnitsViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UnitsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyUnitsViewHolder holder, int position) {
         final Units units=unitsList.get(position);
-        holder.code.setText(units.getCode());
         holder.name.setText(units.getName());
-        holder.add.setOnClickListener(new View.OnClickListener() {
+        holder.code.setText(units.getCode());
+        holder.id.setText(String.valueOf(units.getUnique_id()));
+        holder.drop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context, units.getCode(), Toast.LENGTH_SHORT).show();
-
                 final AlertDialog.Builder alert=new AlertDialog.Builder(context);
-                alert.setTitle("Confirm Enrollment for ");
+                alert.setTitle("Confirm Remove this Unit? ");
                 alert.setMessage(units.getCode()+" "+ units.getName());
                 alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String frm = String.valueOf(SharedPrefManager.getInstance(context).getUser().getId());
-                        String unit_nm =units.getName();
-                        String unit_cd = units.getCode();
+                        String id=String.valueOf( units.getUnique_id());
 
-                        String adm = SharedPrefManager.getInstance(context).getUser().getAdmissionNumber();
-                        String fct = SharedPrefManager.getInstance(context).getUser().getFaculty();
-                        String con = SharedPrefManager.getInstance(context).getUser().getPhone();
-                        Call<ResponseBody> call= RetrofitClient.getInstance().getApi().unit_register(
-                                frm,unit_nm,unit_cd,adm,fct,con
-                        );
-
+                        Call<ResponseBody> call= RetrofitClient.getInstance().getApi().drop_unit(id);
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
-                                //String s=response.body().string();
-                                Toast.makeText(context, " Enrolled  Successfully ", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(context, units.getId(), Toast.LENGTH_SHORT).show();
+                                try {
+                                    String s = response.body().string();
+                                    Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
 
                             }
 
@@ -86,38 +79,33 @@ public class UnitsAdapter extends RecyclerView.Adapter<UnitsAdapter.UnitsViewHol
                         });
                     }
                 });
-                alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+
                     }
                 });
-
-
                 AlertDialog alertDialog=alert.create();
                 alertDialog.show();
             }
         });
     }
 
-
-
-
     @Override
     public int getItemCount() {
         return unitsList.size();
     }
 
-    class UnitsViewHolder extends RecyclerView.ViewHolder{
-        TextView code,name;
-        Button add;
-        public UnitsViewHolder(@NonNull View itemView) {
+    class MyUnitsViewHolder extends RecyclerView.ViewHolder{
+        TextView code,name,drop,id;
+        public MyUnitsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             code=itemView.findViewById(R.id.code);
             name=itemView.findViewById(R.id.name);
-            add=itemView.findViewById(R.id.add_unit);
+            id=itemView.findViewById(R.id.id);
+            drop=itemView.findViewById(R.id.drop_unit);
         }
     }
-    }
 
+}

@@ -3,14 +3,15 @@ package com.example.studentapp.models;
 public class User {
 
     private int id;
-    private String name,email,gender,admissionNumber,phone,campus,faculty;
+    private String name,email,gender,admissionNumber,programe,phone,campus,faculty;
 
-    public User(int id, String name, String email, String gender, String admissionNumber, String phone, String campus, String faculty) {
+    public User(int id, String name, String email, String gender, String admissionNumber, String programe, String phone, String campus, String faculty) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.gender = gender;
         this.admissionNumber = admissionNumber;
+        this.programe = programe;
         this.phone = phone;
         this.campus = campus;
         this.faculty = faculty;
@@ -40,12 +41,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getGender() {
+        return gender;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getAdmissionNumber() {
@@ -56,12 +57,20 @@ public class User {
         this.admissionNumber = admissionNumber;
     }
 
-    public String getGender() {
-        return gender;
+    public String getPrograme() {
+        return programe;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPrograme(String programe) {
+        this.programe = programe;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getCampus() {

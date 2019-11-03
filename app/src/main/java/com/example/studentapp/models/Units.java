@@ -1,21 +1,20 @@
 package com.example.studentapp.models;
 
 public class Units {
-    private int id;
-    private String name,code;
+    private String unique_id,name,code;
 
-    public Units(int id, String name, String code) {
-        this.id = id;
+    public Units(String unique_id, String name, String code) {
+        this.unique_id = unique_id;
         this.name = name;
         this.code = code;
     }
 
-    public int getId() {
-        return id;
+    public String getUnique_id() {
+        return unique_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUnique_id(String unique_id) {
+        this.unique_id = unique_id;
     }
 
     public String getName() {
