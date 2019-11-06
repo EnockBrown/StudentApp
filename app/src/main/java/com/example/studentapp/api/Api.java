@@ -22,10 +22,10 @@ public interface Api {
             @Field("password") String password,
             @Field("gender") String gender,
             @Field("admissionNumber") String admissionNumber,
+            @Field("programe") String programe,
             @Field("phone") String phone,
             @Field("campus") String campus,
             @Field("faculty") String faculty
-
     );
 
     @FormUrlEncoded
@@ -61,5 +61,18 @@ public interface Api {
             @Field("faculty") String faculty,
             @Field("contacts") String contacts
 
+    );
+
+    @FormUrlEncoded
+    @POST("update/{id}")
+    Call<ResponseBody> update_user(
+            @Path("id") String id,
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("gender") String gender,
+            @Field("admissionNumber") String admissionNumber,
+            @Field("phone") String phone,
+            @Field("campus") String campus,
+            @Field("faculty") String faculty
     );
 }

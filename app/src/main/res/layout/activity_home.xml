@@ -390,7 +390,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:scaleType="fitStart"
-                                android:src="@drawable/settings" />
+                                android:src="@drawable/examcard" />
 
                             <ImageView
                                 android:id="@+id/logout"

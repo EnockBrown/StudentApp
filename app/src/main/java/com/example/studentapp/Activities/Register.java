@@ -22,6 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class Register extends AppCompatActivity {
     EditText name,email,password,phone,admissionNumber,campus,faculty,gender;
     Button btnSignUp;
@@ -132,27 +133,30 @@ public class Register extends AppCompatActivity {
                 }
                 //Do registration
                 Toast.makeText(Register.this, adm, Toast.LENGTH_SHORT).show();
-
-                Call<ResponseBody> call= RetrofitClient.getInstance().getApi().createUser(
-                        nm,em,pwd,gen,adm,phn,cmp,fclt
+                String prg="mechanical";
+                Call<ResponseBody> c=RetrofitClient.getInstance().getApi().createUser(
+                        nm,em,pwd,gen,adm,prg,phn,cmp,fclt
                 );
 
-                call.enqueue(new Callback<ResponseBody>() {
+                c.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                        String s= null;
                         try {
-                            String s=response.body().string();
-                            Toast.makeText(Register.this, s, Toast.LENGTH_SHORT).show();
+                            s = response.body().string();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                        Toast.makeText(Register.this, s, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
+
             }
         });
     }

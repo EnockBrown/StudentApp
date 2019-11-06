@@ -3,10 +3,11 @@ package com.example.studentapp.models;
 public class User {
 
     private int id;
-    private String name,email,gender,admissionNumber,programe,phone,campus,faculty;
+    private String unique_id,name,email,gender,admissionNumber,programe,phone,campus,faculty;
 
-    public User(int id, String name, String email, String gender, String admissionNumber, String programe, String phone, String campus, String faculty) {
+    public User(int id, String unique_id, String name, String email, String gender, String admissionNumber, String programe, String phone, String campus, String faculty) {
         this.id = id;
+        this.unique_id = unique_id;
         this.name = name;
         this.email = email;
         this.gender = gender;
@@ -15,6 +16,14 @@ public class User {
         this.phone = phone;
         this.campus = campus;
         this.faculty = faculty;
+    }
+
+    public String getUnique_id() {
+        return unique_id;
+    }
+
+    public void setUnique_id(String unique_id) {
+        this.unique_id = unique_id;
     }
 
     public int getId() {

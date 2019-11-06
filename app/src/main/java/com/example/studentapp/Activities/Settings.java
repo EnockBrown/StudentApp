@@ -11,7 +11,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.studentapp.R;
+import com.example.studentapp.api.RetrofitClient;
 import com.example.studentapp.storage.SharedPrefManager;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Settings extends AppCompatActivity {
     EditText name,email,phone,admissionNumber,campus,faculty,gender;
@@ -48,6 +56,36 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Settings.this, "Updated", Toast.LENGTH_SHORT).show();
+                String id=String.valueOf(SharedPrefManager.getInstance(Settings.this).getUser().getUnique_id());
+                String uname=name.getText().toString().trim();
+                String uemail=email.getText().toString().trim();
+                String uphone=phone.getText().toString().trim();
+                String uadm=admissionNumber.getText().toString().trim();
+                String ucampus=campus.getText().toString().trim();
+                String ufaculty=faculty.getText().toString().trim();
+                String ugender=gender.getText().toString().trim();
+
+                Call<ResponseBody> call= RetrofitClient.getInstance().getApi().update_user(
+                        id,uname,uemail,uphone,uadm,ucampus,ufaculty,ugender
+                );
+                call.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                        try {
+                            String s=  response.body().string();
+                            Toast.makeText(Settings.this, s, Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(Settings.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
